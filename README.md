@@ -58,3 +58,33 @@ The lab was validated with controlled connectivity tests.
 ## Status
 
 OPNsense + MikroTik segmentation and hardening scenario successfully validated in GNS3.
+
+## Evidence
+
+### Final GNS3 topology
+
+![Final GNS3 topology](evidence/topology/01-final-gns3-topology.png)
+
+### OPNsense firewall segmentation
+
+![OPNsense firewall Live View](evidence/opnsense/02-segmentation-firewall-live-view.png)
+
+### MikroTik DHCP and gateway validation
+
+![PC3 DHCP and gateway](evidence/mikrotik/03-pc3-dhcp-and-gateway.png)
+
+### Internet connectivity from MikroTik LAN
+
+![PC3 Internet access](evidence/mikrotik/04-pc3-internet-pass.png)
+
+### Trusted LAN isolation
+
+![PC3 trusted LAN blocked](evidence/mikrotik/05-pc3-trusted-lan-block.png)
+
+### RouterOS service hardening
+
+![RouterOS service hardening](evidence/mikrotik/06-routeros-service-hardening.png)
+
+### SSH management from Fedora
+
+![Fedora SSH management](evidence/mikrotik/07-fedora-ssh-management.png)
