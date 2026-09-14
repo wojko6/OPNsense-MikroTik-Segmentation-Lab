@@ -1,0 +1,31 @@
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Logs
+*.log
+
+# Packet captures
+*.pcap
+*.pcapng
+
+# Sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+
+# Environment / secrets
+.env
+.env.*
+secrets/
+private/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
