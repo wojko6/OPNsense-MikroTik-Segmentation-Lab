@@ -38,13 +38,18 @@ The design separates trusted management systems, a laboratory/transit network an
                             Switch3
                                |
                               PC3
+
                         192.168.30.0/24
-Network segments
-WAN — 192.168.122.0/24
+```
+
+
+## Network segments
+
+### WAN — 192.168.122.0/24
 
 Provides upstream Internet connectivity to OPNsense through the GNS3 NAT node.
 
-Trusted LAN — 192.168.1.0/24
+### Trusted LAN — 192.168.1.0/24
 
 Primary management network.
 
@@ -55,7 +60,7 @@ OPNsense:
 Fedora management host:
 
 192.168.1.10/32
-LAB / Transit — 192.168.20.0/24
+### LAB / Transit — 192.168.20.0/24
 
 Connects OPNsense OPT1, laboratory systems and the MikroTik CHR uplink.
 
@@ -66,7 +71,7 @@ OPNsense:
 MikroTik CHR ether1:
 
 192.168.20.2/24
-MikroTik LAN — 192.168.30.0/24
+### MikroTik LAN — 192.168.30.0/24
 
 Downstream client network routed by MikroTik CHR.
 
@@ -77,7 +82,7 @@ MikroTik CHR ether2:
 DHCP pool:
 
 192.168.30.100-192.168.30.199
-Routing
+## Routing
 
 MikroTik uses OPNsense as its upstream router:
 0.0.0.0/0 -> 192.168.20.1
@@ -85,7 +90,7 @@ OPNsense contains a route for:
 192.168.30.0/24 -> 192.168.20.2
 Outbound traffic from the MikroTik LAN is translated on the OPNsense WAN interface.
 
-Security boundaries
+## Security boundaries
 
 Traffic originating from 192.168.30.0/24 is permitted to reach the Internet but is explicitly prevented from initiating connections to the trusted 192.168.1.0/24 LAN.
 
@@ -98,11 +103,11 @@ established/related state handling
 invalid-state dropping
 SSH/WinBox restricted to 192.168.1.10/32
 unnecessary RouterOS management services disabled
-Traffic examples
+## Traffic examples
 
-Allowed:
+### Allowed
 PC3 -> MikroTik -> OPNsense -> Internet
 Fedora management host -> OPNsense -> MikroTik SSH
-Blocked:
+### Blocked
 PC3 -> MikroTik -> OPNsense -X-> Trusted LAN
 The blocked traffic is logged by OPNsense, providing evidence that segmentation is enforced by policy rather than by lack of routing.
